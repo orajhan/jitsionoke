@@ -11,6 +11,7 @@ Prerequisite: Build costomized image with 10-config
 2. From JVB pod, I am accessing to XMPP Server via service in which 5222 so that I do not have to rely on IP address of Jitsi pod since pod ip will be changed if pod is re-created.
 - XMPP_SERVER => web
 - In Web yaml, add the following ports.
+
   - name: "xmpp"   #now JVB is accessing xmpp via service name using port 5222
     port: 5222
     targetPort: 5222
@@ -18,6 +19,7 @@ Prerequisite: Build costomized image with 10-config
 * I have seen many cases that Jitsi kicked the session as soon as the second participant joins the same meeting. This issue most likely related to port issue between JVB and XMPP server. 
 
 3. added resource reuest in jvb yaml. If not, HPA will complain. 
+
 resources:
   requests:
     cpu: "0.5"  # any 
