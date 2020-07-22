@@ -20,6 +20,6 @@ Prerequisite: Build costomized image with 10-config
 3. added resource reuest in jvb yaml. If not, HPA will complain. 
 resources:
   requests:
-  cpu: "0.5"
+    cpu: "0.5"  # any 
 
-There may be a few more changes but not a major one. 
+There may be a few more changes but these are what you need to know. Will update when I remember other I changed. 
