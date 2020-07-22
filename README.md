@@ -1,7 +1,7 @@
 # Jitsi Meet app deployment in Kunernetes (Oracle Kubernetes Engine)
 - running Jitsi Meet app on Kubernetes
 
-I referred to https://github.com/DushmanthaBandaranayake/jitsi-kubernetes-scalable-service and have made some changes below:
+I referred to https://github.com/DushmanthaBandaranayake/jitsi-kubernetes-scalable-service and have made some changes below.\
 Actually Dush's 10-config script is the crucial one to make HPA work since JVB must have unique port to be scaled horizontally by design. 
 
 Prerequisite: Build costomized image with 10-config 
