@@ -10,4 +10,4 @@ spec:
     apiVersion: apps/v1
     kind: StatefulSet
     name: jvb
-  targetCPUUtilizationPercentage: 7
+  targetCPUUtilizationPercentage: 70
