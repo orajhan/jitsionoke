@@ -1,0 +1,64 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: jvb
+  #namespace: jitsi
+spec:
+  serviceName: "jvb" #Do not use '-' in name.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jvb
+  template:
+    metadata:
+      labels:
+        app: jvb
+    spec:
+      containers:
+        - name: jvb
+          image: lhr.ocir.io/YourTenancy/Repo/jvb:1.0.0   #I am using Oracle cloud registry 
+          imagePullPolicy: Always
+          #volumeMounts:
+          #  - name: jvb
+          #    mountPath: /home/jitsi-config/jvb/pv
+          resources:
+            requests:
+              cpu: "0.5"
+          env:
+            - name: XMPP_SERVER
+              value: web                #--------Insted of pod ip, I am using service name-------------#
+            - name: DOCKER_HOST_ADDRESS #--------UPDATE THIS-------------#
+              value: X.X.X.X            #------ your server IP ----------#
+            - name: XMPP_DOMAIN
+              value: meet.jitsi
+            - name: XMPP_AUTH_DOMAIN
+              value: auth.meet.jitsi
+            - name: XMPP_INTERNAL_MUC_DOMAIN
+              value: internal-muc.meet.jitsi
+            - name: JVB_STUN_SERVERS
+              value: stun.l.google.com:19302,stun1.l.google.com:19302,stun2.l.google.com:19302
+            - name: JICOFO_AUTH_USER
+              value: focus
+            - name: JVB_TCP_HARVESTER_DISABLED
+              value: "true"
+            - name: JVB_AUTH_USER
+              value: jvb
+            #- name: JVB_PORT   # this will be assigned while pod is being created by /etc/cont-init.d/10-config
+              #value: "30300"
+            - name: JVB_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: jitsi-config
+                  key: JVB_AUTH_PASSWORD
+            - name: JICOFO_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: jitsi-config
+                  key: JICOFO_AUTH_PASSWORD
+            - name: JVB_BREWERY_MUC
+              value: jvbbrewery
+            - name: TZ
+              value: America/Los_Angeles
+      imagePullSecrets:           # secret to pull your image
+        - name: ocirsecret        # your private repo
