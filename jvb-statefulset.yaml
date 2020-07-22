@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: jvb
-          image: lhr.ocir.io/YourTenancy/Repo/jvb:1.0.0   #I am using Oracle cloud registry 
+          image: lhr.ocir.io/YourTenancy/Repo/YourImage:latest   #I am using Oracle cloud registry 
           imagePullPolicy: Always
           #volumeMounts:
           #  - name: jvb
