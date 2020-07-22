@@ -12,7 +12,7 @@ Prerequisite: Build costomized image with 10-config
 - XMPP_SERVER => web
 - In Web yaml, add the following ports. 
 
-  - name: "xmpp"   #now JVB is accessing xmpp via service name using port 5222 \
+ name: "xmpp"   #now JVB is accessing xmpp via service name using port 5222 \
     port: 5222\
     targetPort: 5222 
 
@@ -20,8 +20,8 @@ Prerequisite: Build costomized image with 10-config
 
 3. added resource reuest in jvb yaml. If not, HPA will complain. 
 
-resources: \
-  requests: \
-    cpu: "0.5"  # any  
+  resources: \
+   requests: \
+     cpu: "0.5"  # any  
 
 There may be a few more changes but these are what you need to know. Will update when I remember other I changed. 
