@@ -28,7 +28,7 @@ spec:
           env:
             - name: XMPP_SERVER
               value: web                #--------Insted of pod ip, I am using service name-------------#
-            - name: DOCKER_HOST_ADDRESS #--------UPDATE THIS-------------#
+            - name: DOCKER_HOST_ADDRESS 
               value: X.X.X.X            #------ your server IP ----------#
             - name: XMPP_DOMAIN
               value: meet.jitsi
