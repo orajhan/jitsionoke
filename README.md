@@ -24,4 +24,5 @@ Prerequisite: Build costomized image with 10-config
    requests: \
      cpu: "0.5"  # any  
 
-There may be a few more changes but these are what you need to know. Will update when I remember other I changed. 
+There may be a few more changes if I recall but these are what you need to know. 
+Will update later on...
