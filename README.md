@@ -24,5 +24,9 @@ Prerequisite: Build costomized image with 10-config
    requests: \
      cpu: "0.5"  # any  
 
+[Optional]
+- tls-ingress.yaml  \
+- I am using CloudFlare TLS certification but it can be any. 
+
 There may be a few more changes if I recall but these are what you need to know. 
 Will update later on...
