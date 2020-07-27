@@ -5,12 +5,16 @@ I referred to https://github.com/DushmanthaBandaranayake/jitsi-kubernetes-scalab
 Actually Dush's 10-config script is the most important one to make HPA work since JVB must have unique port to be scaled horizontally by design. 
 
 Prerequisite: 
- - Build costomized image with 10-config
+ a. Build costomized image with 10-config
  
  Create your oen secret for jitsi app
- - kubectl create secret generic jitsi-config -n jitsi --from-literal=JICOFO_COMPONENT_SECRET=... --from-literal=JICOFO_AUTH_PASSWORD=... --from-literal=JVB_AUTH_PASSWORD=...
+ b. kubectl create secret generic jitsi-config -n jitsi --from-literal=JICOFO_COMPONENT_SECRET=... --from-literal=JICOFO_AUTH_PASSWORD=... --from-literal=JVB_AUTH_PASSWORD=...
+
+
 
 1. Used ingress controller to access Jitsi Meet app in web yaml. 
+https://kubernetes.github.io/ingress-nginx/deploy/
+
 
 2. From JVB pod, I am accessing to XMPP Server via service in which 5222 so that I do not have to rely on IP address of Jitsi pod since pod ip will be changed if pod is re-created.
 - XMPP_SERVER => web
@@ -22,11 +26,13 @@ Prerequisite:
 
 * I have seen many cases that Jitsi kicked the session as soon as the second participant joins the same meeting. This issue most likely related to port issue between JVB and XMPP server. 
 
+
 3. added resource reuest in jvb yaml. If not, HPA will complain. 
 
   resources: \
    requests: \
      cpu: "0.5"  # any  
+
 
 [Optional] - if you would like to secure your connectivity 
 - tls-ingress.yaml  
