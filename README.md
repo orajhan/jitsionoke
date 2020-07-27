@@ -13,6 +13,7 @@ Prerequisite:
  b. kubectl create secret generic jitsi-config -n jitsi --from-literal=JICOFO_COMPONENT_SECRET=... --from-literal=JICOFO_AUTH_PASSWORD=... --from-literal=JVB_AUTH_PASSWORD=...
 
 
+==============================      a few changes in Kubernetes      ==============================
 
 1. Used ingress controller to access Jitsi Meet app in web yaml. 
 https://kubernetes.github.io/ingress-nginx/deploy/
