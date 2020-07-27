@@ -5,8 +5,8 @@ I referred to https://github.com/DushmanthaBandaranayake/jitsi-kubernetes-scalab
 Actually Dush's 10-config script is the most important one to make HPA work since JVB must have unique port to be scaled horizontally by design. 
 
 Prerequisite: 
- - Build costomized image with 10-config 
- Create your oen secret for jitsi app\n
+ - Build costomized image with 10-config \n
+ Create your oen secret for jitsi app
  - kubectl create secret generic jitsi-config -n jitsi --from-literal=JICOFO_COMPONENT_SECRET=... --from-literal=JICOFO_AUTH_PASSWORD=... --from-literal=JVB_AUTH_PASSWORD=...
 
 1. Used ingress controller to access Jitsi Meet app in web yaml. 
