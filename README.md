@@ -11,7 +11,7 @@ Actually Dush's 10-config script is the most important one to make HPA work sinc
 ```sh
  kubectl create secret generic jitsi-config -n jitsi --from-literal=JICOFO_COMPONENT_SECRET=... --from-literal=JICOFO_AUTH_PASSWORD=... --from-literal=JVB_AUTH_PASSWORD=...
 ```
- c. Used ingress controller to access Jitsi Meet app in web yaml. 
+ c. Used ingress controller to access Jitsi Meet app in web yaml. \
 https://kubernetes.github.io/ingress-nginx/deploy/
 
 ### a few changes in Kubernetes
