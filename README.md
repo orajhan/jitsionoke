@@ -5,7 +5,7 @@ Actually Dush's 10-config script is the most important one to make HPA work sinc
 
 ### Prerequisite
 
- a. Build costomized image with 10-config and push it into your own repository 
+ a. Build customized image with 10-config and push it into your own repository 
 
  b. Create your oen secret for jitsi app
 ```sh
